@@ -14,10 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Deploy to GitHub Pages using the peaceiris action
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages  # Target branch for GitHub Pages
-          publish_dir: ./  # Folder containing your static website files (root folder in this case)
+      # Step 2: Ensure the content is ready (this step is optional)
+      - name: Prepare content
+        run: |
+          echo "Site is ready for deployment"
+
+      # Step 3: Deploy by pushing to the main branch (no need to deploy to gh-pages)
+      # Since GitHub Pages is using the main branch, no additional action is needed here
